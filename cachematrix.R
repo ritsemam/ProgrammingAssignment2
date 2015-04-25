@@ -19,14 +19,14 @@ makeCachematrix <- function(x = matrix()) {             # defines matrix as 'x'
 }
 
 
-cacheSolve <- function(x, ...) { ## Return a matrix that has been cached that is the inverse of martix 'x'
-  invmatrix <- x$getinverse()  #gets the inverse from getinverse function
-  if(!is.null(invmatrix)) { # checks to see if 'invmatrix' has been cached, 
-    message("getting cached data") # if 'invmatrix' is present, return 'getting cached data'
+cacheSolve <- function(x, ...) {          ## Return a matrix that has been cached that is the inverse of martix 'x'
+  invmatrix <- x$getinverse()             #gets the inverse from getinverse function
+  if(!is.null(invmatrix)) {               # checks to see if 'invmatrix' has been cached, 
+    message("getting cached data")        # if 'invmatrix' is present, return 'getting cached data'
     return(invmatrix)
   }
-  data <- x$get()       # if not present, gets the matrix 'x'
-  invmatrix <- solve(data, ...) #the solve function calculates the inverse of the matrix 'x'
-  x$setinverse(invmatrix)     #sets the inverse of the matrix 'x' as 'invmatrix'
-  invmatrix                   #return the inverted matrix
+  data <- x$get()                         # if not present, gets the matrix 'x'
+  invmatrix <- solve(data, ...)           #the solve function calculates the inverse of the matrix 'x'
+  x$setinverse(invmatrix)                 #sets the inverse of the matrix 'x' as 'invmatrix'
+  invmatrix                               #return the inverted matrix
 }
